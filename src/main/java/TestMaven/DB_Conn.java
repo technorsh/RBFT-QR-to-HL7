@@ -10,6 +10,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class DB_Conn {
+
     //String connectionString = System.getProperty("mongodb.uri");
     MongoClient client = MongoClients.create("mongodb+srv://testuser:vzftoQDZuAO4mxXX@cluster0.byrc8.mongodb.net/test");
     MongoDatabase database = client.getDatabase("stageIndia");
@@ -49,8 +50,6 @@ public class DB_Conn {
             JSONParser parser = new JSONParser();
             json = (JSONObject) parser.parse(q);
 
-            //System.out.println(json);
-
         }
         return json;
     }
@@ -69,8 +68,6 @@ public class DB_Conn {
             String q=document.toJson(settings);
             JSONParser parser = new JSONParser();
             json = (JSONObject) parser.parse(q);
-
-            //System.out.println(json);
 
         }
         return json;

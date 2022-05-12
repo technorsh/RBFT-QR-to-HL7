@@ -21,13 +21,13 @@ public class Message_Creation {
     private MDM_T02 _mdmMessage;
     Sub_App sub=new Sub_App();
 
-    public MDM_T02 createHL7(String Encoded) throws HL7Exception, IOException, java.text.ParseException {
+    public MDM_T02 createHL7(String Encoded, JSONObject p_data) throws HL7Exception, IOException, java.text.ParseException {
         String currentDateTimeString = getCurrentTimeStamp();
         _mdmMessage = new MDM_T02();
         //you can use the context class's newMessage method to instantiate a message if you want
         _mdmMessage.initQuickstart("MDM", "T02", "P");
         createMshSegment(currentDateTimeString);
-        createPidSegment(sub.person_data);
+        createPidSegment(p_data);
         createObxSegment(Encoded);
         return _mdmMessage;
     }

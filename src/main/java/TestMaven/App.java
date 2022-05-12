@@ -45,11 +45,11 @@ public class App implements RequestHandler<String, String>{
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-
+            JSONObject p_data= Sub.person_data;
             if (Encoded != null && Encoded != "1" && Encoded != "2") {
                 try {
                     Message_Creation MSG=new Message_Creation();
-                    MDM_T02 msg = MSG.createHL7(Encoded);
+                    MDM_T02 msg = MSG.createHL7(Encoded, p_data);
                     FileWriter myWriter = new FileWriter("/tmp/MDM.txt");
                     myWriter.write(String.valueOf(msg));
                     myWriter.close();
