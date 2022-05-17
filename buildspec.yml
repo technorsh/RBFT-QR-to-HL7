@@ -29,12 +29,8 @@ phases:
     commands:
       - echo 'Build Phase ...'
       - mvn package
-      - #! /bin/bash
-      - dir=($(ls target))
-      - lambda_jar_file=${dir[0]}
-      - echo $lambda_jar_file
-      - terraform apply -auto-approve -var="filename=$lambda_jar_file"
+      - terraform apply -auto-approve -var="filename=$FILENAME"
 artifacts:
   files:
-    - target/QR2HL7-1.0-SNAPSHOT.jar
+    - $FILENAME
   
