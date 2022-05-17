@@ -4,7 +4,7 @@ run-as: root
 phases:
   install:
     runtime-versions:
-      java: openjdk11
+      java: corretto11
     commands:
       - apt-get update -y
       - apt-get install -y maven
