@@ -19,6 +19,7 @@ phases:
     commands:
       - echo 'Build Phase ...'
       - mvn install
+      - mvn package -DskipTests -Dmaven.javadoc.skip=true
       - #! /bin/bash
       - ls target
       - dir=$(ls target)
