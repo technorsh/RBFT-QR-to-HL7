@@ -8,10 +8,12 @@ phases:
     commands:
       - yum update -y
       - yum install maven -y
+      - yum install awscli -y
   pre_build:
     commands:
       - java -version
       - mvn -version 
+      - aws --version
   pre_build:
     commands:
       - echo 'Pre Build Phase ...'
@@ -24,6 +26,9 @@ phases:
       - dir=($(ls target))
       - lambda_jar_file=${dir[0]}
       - echo $lambda_jar_file
+      - aws lambda update-function-code \
+      - --function-name MavenLambdaFunction \
+      - --zip-file $lambda_jar_file
 artifacts:
   files:
     - target/QR2HL7-1.0-SNAPSHOT.jar
