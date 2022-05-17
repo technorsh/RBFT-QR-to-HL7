@@ -12,10 +12,10 @@ buildNumber.properties
 main.sh
 .terraform
 .terraform.**
-output.tf
-variables.tf
+# output.tf
+# variables.tf
 terraform*
-main.tf
+# main.tf
 # Eclipse m2e generated files
 # Eclipse Core
 .project
