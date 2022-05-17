@@ -68,9 +68,7 @@ public class DB_Conn {
             String q=document.toJson(settings);
             JSONParser parser = new JSONParser();
             json = (JSONObject) parser.parse(q);
-
         }
         return json;
     }
-
 }

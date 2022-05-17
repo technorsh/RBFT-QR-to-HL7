@@ -75,5 +75,4 @@ public class App implements RequestHandler<String, String>{
         }
             return String.valueOf(qrID);
     }
-
 }
