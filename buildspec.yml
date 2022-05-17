@@ -6,8 +6,8 @@ phases:
     runtime-versions:
       java: corretto11
     commands:
-      - apt-get update -y
-      - apt-get install -y maven
+      - yum update -y
+      - yum install maven -y
   pre_build:
     commands:
       - java -version
@@ -19,6 +19,7 @@ phases:
     commands:
       - echo 'Build Phase ...'
       - mvn install
+      - #! /bin/bash
       - ls target
       - dir=$(ls target)
       - arr=($dir)
