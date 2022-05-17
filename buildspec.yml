@@ -19,7 +19,10 @@ phases:
     commands:
       - echo 'Build Phase ...'
       - mvn install
-     
+      - dir=($(ls target))
+      - lambda_jar_file=${dir[0]}
+      - echo $lambda_jar_file
 artifacts:
   files:
-    - 'target/*.jar'
+    - '**/*'
+  
