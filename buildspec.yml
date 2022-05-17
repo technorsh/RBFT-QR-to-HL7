@@ -4,33 +4,35 @@ run-as: root
 phases:
   install:
     runtime-versions:
-      java: corretto11
+      java: corretto11 # Java version 11
     commands:
+      - echo 'Install Dependencies ... '
       - yum update -y
-      - yum install maven -y
-      - yum install awscli -y
-      - yum install -y yum-utils
+      - yum install maven -y # Install Maven
+      - yum install awscli -y # AWS CLI
+      - yum install -y yum-utils 
       - yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-      - yum -y install terraform -y
-  pre_build:
-    commands:
-      - java -version
-      - mvn -version 
-      - aws --version
-      - terraform --version
+      - yum -y install terraform # Install Terraform
   pre_build:
     commands:
       - echo 'Pre Build Phase ...'
-      - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+      - java -version # Java version
+      - mvn -version # Maven version
+      - aws --version # AWS version
+      - terraform --version # Terraform version
+      - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID # Access key (without this nothing work)
       - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-      - terraform init
-      - mvn install
+      - terraform init # Setup terraform project
   build:
     commands:
       - echo 'Build Phase ...'
-      - mvn package
-      - terraform apply -auto-approve -var="filename=$FILENAME"
+      - mvn install # Install all dependencies to the project & also create the build as well
+      - mvn package # Just for safer side adding this.. It'll just work as to verify package created or not
+  post_build:
+    commands:
+      - echo 'Post Build Phase ...'
+      - terraform apply -auto-approve -var="filename=$FILENAME" # Here terraform apply create the Lambda function & keep track of any updates
 artifacts:
   files:
-    - $FILENAME
+    - $FILENAME # Build Artifact file (in our case it's *.jar file)
   
