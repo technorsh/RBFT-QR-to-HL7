@@ -15,16 +15,14 @@ phases:
   pre_build:
     commands:
       - echo 'Pre Build Phase ...'
+      - mvn install
   build:
     commands:
       - echo 'Build Phase ...'
-      - mvn install
-      - mvn package -DskipTests -Dmaven.javadoc.skip=true
+      - mvn package
       - #! /bin/bash
-      - ls target
-      - dir=$(ls target)
-      - arr=($dir)
-      - lambda_jar_file=${arr[0]}
+      - dir=($(ls target))
+      - lambda_jar_file=${dir[0]}
       - echo $lambda_jar_file
 artifacts:
   files:
