@@ -28,5 +28,5 @@ phases:
       - echo $lambda_jar_file
 artifacts:
   files:
-    - '**/*'
+    - target/QR2HL7-1.0-SNAPSHOT.jar
   
