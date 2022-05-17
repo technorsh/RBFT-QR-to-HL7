@@ -10,6 +10,12 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 main.sh
+.terraform
+.terraform.**
+output.tf
+variables.tf
+terraform*
+main.tf
 # Eclipse m2e generated files
 # Eclipse Core
 .project
