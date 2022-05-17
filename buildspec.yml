@@ -1,0 +1,25 @@
+version: 0.2
+run-as: root
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      - apt-get update -y
+      - apt-get install -y maven
+  pre_build:
+    commands:
+      - java -version
+      - mvn -version 
+  pre_build:
+    commands:
+      - echo 'Pre Build Phase ...'
+  build:
+    commands:
+      - echo 'Build Phase ...'
+      - mvn install
+     
+artifacts:
+  files:
+    - target/*.jar
