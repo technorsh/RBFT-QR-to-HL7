@@ -34,9 +34,6 @@ phases:
       - lambda_jar_file=${dir[0]}
       - echo $lambda_jar_file
       - terraform apply -auto-approve -var="filename=$lambda_jar_file"
-      # - aws lambda update-function-code \
-      # - --function-name MavenLambdaFunction \
-      # - --zip-file $lambda_jar_file
 artifacts:
   files:
     - target/QR2HL7-1.0-SNAPSHOT.jar
