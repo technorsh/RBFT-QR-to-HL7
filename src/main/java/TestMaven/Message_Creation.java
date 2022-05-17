@@ -108,6 +108,4 @@ public class Message_Creation {
         String facilityNumberPrefix = "1234"; // some arbitrary prefix for the facility
         return facilityNumberPrefix.concat(getCurrentTimeStamp());
     }
-
-
 }
