@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = "bucket.tfstate"
-    key            = "lambda_state"
-    region         = "us-east-1"
+    bucket         = "rbft-qr-to-hl7-terraform-state"
+    key            = "lambda.tfstate"
+    region         = "ap-south-1"
   }
 }
 
@@ -18,7 +18,7 @@ resource "aws_lambda_function" "lambda" {
     role          = aws_iam_role.iam_for_lambda.arn
     handler       = var.handler
     runtime       = var.runtime
-    source_code_hash = filebase64sha256(var.filename) #"${data.archive_file.lambda_zip.output_base64sha256}"
+    source_code_hash = filebase64sha256(var.filename)
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
