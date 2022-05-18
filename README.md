@@ -21,7 +21,9 @@ Note : If values are changed, need to update in Environment variable of CodeBuil
  filename       |   "target/QR2HL7-1.0-SNAPSHOT.jar"   <- ( FILENAME )
  handler        |   "TestMaven.App::handleRequest"  
  function_name  |   "MavenLambdaFunction"            
- runtime        |   "java11"                         
+ runtime        |   "java11"     
  ```
+ #### AWS Console 
 `CodePipeline` : [Click here](https://www.google.com "Google's Homepage") <br/>
-`Lambda Function` : [Click here](https://www.google.com "Google's Homepage")
+`Lambda Function` : [Click here](https://www.google.com "Google's Homepage") <br/>
+`Terraform state bucket` : [rbft-qr-to-hl7-terraform-state](https://s3.console.aws.amazon.com/s3/buckets/rbft-qr-to-hl7-terraform-state?region=ap-south-1&tab=objects "Terraform state bucket")
