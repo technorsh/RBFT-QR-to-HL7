@@ -12,7 +12,6 @@ buildNumber.properties
 .terraform
 .terraform.**
 terraform.*
-code
 # Eclipse m2e generated files
 # Eclipse Core
 .project
